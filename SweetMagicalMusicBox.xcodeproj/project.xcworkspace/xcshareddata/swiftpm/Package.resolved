@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "eaf6e622dd41b07b251d8f01752eab31bc811493",
+          "version": "5.4.1"
+        }
+      },
+      {
+        "package": "CurlDSL",
+        "repositoryURL": "https://github.com/zonble/CurlDSL",
+        "state": {
+          "branch": null,
+          "revision": "9a91a25dc3ca9496fe92680d2ea787adf5a50319",
+          "version": "0.0.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
