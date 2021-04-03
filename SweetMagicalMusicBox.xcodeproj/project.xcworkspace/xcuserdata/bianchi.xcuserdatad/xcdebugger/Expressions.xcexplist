@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MagicalSongsViewController.playStopAudioButtonAction(_:):MagicalSongsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellPlayingInAction?.buttonPlay.tag">
+            </PersistentString>
+            <PersistentString
+               value = "cellPlayingInAction">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MagicalSongsViewController.uploadSongButtonAction(_:):MagicalSongsViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

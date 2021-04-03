@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TwS-jI-11X">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="TwS-jI-11X" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cp2-KN-Wni">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -30,11 +30,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SweetMagicalMusicBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apX-GI-yQW">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="370" width="736" height="44"/>
                                 <items>
                                     <navigationItem id="KvE-Uv-p1h">
                                         <leftBarButtonItems>
@@ -47,7 +47,7 @@
                                             <barButtonItem title="Item" image="play.circle.fill" catalog="system" id="6yf-Gr-W7d">
                                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                                 <connections>
-                                                    <action selector="playStopAudioButton:" destination="BYZ-38-t0r" id="Vc5-Wq-7XL"/>
+                                                    <action selector="playStopAudioButtonAction:" destination="BYZ-38-t0r" id="Vc5-Wq-7XL"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem width="260" id="pXk-Ff-EbG" userLabel="Song Button Item"/>
@@ -55,8 +55,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZM-NR-U8S" userLabel="Note1Button">
-                                <rect key="frame" x="56" y="178" width="74" height="81.666666666666671"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZM-NR-U8S" userLabel="Note1Button">
+                                <rect key="frame" x="128.66666666666666" y="65" width="74" height="81.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="WYv-nW-SjW"/>
                                     <constraint firstAttribute="width" constant="74" id="fvl-jw-YhR"/>
@@ -70,8 +70,8 @@
                                     <action selector="playNoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="keY-Fv-yhK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Teq-BY-aD8" userLabel="Note2Button">
-                                <rect key="frame" x="273.66666666666669" y="163.66666666666666" width="74" height="81.666666666666671"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Teq-BY-aD8" userLabel="Note2Button">
+                                <rect key="frame" x="515" y="58.000000000000007" width="74" height="81.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="QIO-Hh-Sts"/>
                                     <constraint firstAttribute="height" constant="83" id="fZz-ua-Mc1"/>
@@ -85,8 +85,8 @@
                                     <action selector="playNoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6rx-IC-Kcc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFj-hl-ePm" userLabel="Note3Button">
-                                <rect key="frame" x="159.66666666666666" y="292" width="74" height="81.666666666666686"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFj-hl-ePm" userLabel="Note3Button">
+                                <rect key="frame" x="312.66666666666669" y="119.66666666666666" width="74" height="81.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="ZIh-xC-QBb"/>
                                     <constraint firstAttribute="height" constant="83" id="jCg-h4-1Z9"/>
@@ -100,8 +100,8 @@
                                     <action selector="playNoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ySH-Fy-MkW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-mH-dYy" userLabel="Note4Button">
-                                <rect key="frame" x="25" y="401.33333333333331" width="74" height="81.666666666666686"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-mH-dYy" userLabel="Note4Button">
+                                <rect key="frame" x="73.333333333333329" y="172.33333333333334" width="73.999999999999986" height="81.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="q81-t6-LTo"/>
                                     <constraint firstAttribute="height" constant="83" id="sW0-b7-TX8"/>
@@ -115,8 +115,8 @@
                                     <action selector="playNoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PXh-Of-fBk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8Z-Ll-eM6" userLabel="Note5Button">
-                                <rect key="frame" x="252.66666666666663" y="387" width="74" height="81.666666666666686"/>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8Z-Ll-eM6" userLabel="Note5Button">
+                                <rect key="frame" x="478.33333333333326" y="165.66666666666666" width="74" height="81.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="Jhs-9d-Gae"/>
                                     <constraint firstAttribute="width" constant="74" id="Oxc-Bc-b5F"/>
@@ -130,8 +130,8 @@
                                     <action selector="playNoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rwr-fN-Fg3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y28-G9-VuF" userLabel="Note6Button">
-                                <rect key="frame" x="66.666666666666671" y="624.66666666666663" width="74.000000000000014" height="81.666666666666629"/>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y28-G9-VuF" userLabel="Note6Button">
+                                <rect key="frame" x="147" y="280" width="74" height="81.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="7Ue-Xz-Ife"/>
                                     <constraint firstAttribute="width" constant="74" id="9Az-2k-bDH"/>
@@ -145,8 +145,8 @@
                                     <action selector="playNoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5q-Ym-DZD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9x-UB-lew" userLabel="Note7Button">
-                                <rect key="frame" x="294.33333333333331" y="615" width="74" height="81.666666666666629"/>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9x-UB-lew" userLabel="Note7Button">
+                                <rect key="frame" x="551.66666666666663" y="275.66666666666669" width="74" height="81.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="4Fl-sc-1NV"/>
                                     <constraint firstAttribute="height" constant="83" id="5hi-Qt-veV"/>
@@ -186,8 +186,7 @@
                     <navigationItem key="navigationItem" title="Sweet Magical Music Box" id="Ljj-i1-daE">
                         <barButtonItem key="rightBarButtonItem" image="list.triangle" catalog="system" id="ViD-VR-hBZ">
                             <connections>
-                                <action selector="goToMagicalSoundsButtonAction:" destination="BYZ-38-t0r" id="nTT-37-2xo"/>
-                                <segue destination="eIR-O0-E8c" kind="show" identifier="goToMagicalSongs" id="YUw-VQ-d7U"/>
+                                <action selector="goToMagicalSongsButtonAction:" destination="BYZ-38-t0r" id="nTT-37-2xo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -203,6 +202,7 @@
                         <outlet property="buttonRecordStopSong" destination="rNN-lm-wwY" id="I7K-LV-kuy"/>
                         <outlet property="buttonSong" destination="pXk-Ff-EbG" id="u4t-ml-c35"/>
                         <outlet property="navBar" destination="apX-GI-yQW" id="jKc-Cb-dYG"/>
+                        <segue destination="rUA-A8-VtF" kind="show" identifier="goToMagicalSongs" id="edt-n3-tjv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -210,182 +210,253 @@
             <point key="canvasLocation" x="-655.07246376811599" y="75.669642857142847"/>
         </scene>
         <!--Magical Songs-->
-        <scene sceneID="jIE-cV-QI1">
+        <scene sceneID="9TG-qY-nOJ">
             <objects>
-                <tableViewController id="eIR-O0-E8c" customClass="MagicalSongsViewController" customModule="SweetMagicalMusicBox" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1cr-vF-Bel">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="rUA-A8-VtF" customClass="MagicalSongsViewController" customModule="SweetMagicalMusicBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1D8-IO-zpY">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXM-6L-Ylh">
+                                <rect key="frame" x="0.0" y="44" width="736" height="44"/>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J3X-j0-e2B">
+                                <rect key="frame" x="0.0" y="44" width="736" height="370"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="114" id="LlW-di-jXL" customClass="MusicCellTableViewCell" customModule="SweetMagicalMusicBox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="736" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LlW-di-jXL" id="wbS-p9-wba">
+                                            <rect key="frame" x="0.0" y="0.0" width="736" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EsG-gv-3LC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="736" height="114"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teste" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqy-t1-BDF" userLabel="Title Song">
+                                                            <rect key="frame" x="11.999999999999972" y="51" width="501.33333333333326" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-cD-gve" userLabel="Play Button">
+                                                            <rect key="frame" x="523.33333333333337" y="35.333333333333329" width="65.333333333333371" height="52.333333333333336"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="49" id="8gp-xE-FxC"/>
+                                                                <constraint firstAttribute="height" constant="49" id="Idn-aG-oLm"/>
+                                                                <constraint firstAttribute="width" secondItem="b4d-cD-gve" secondAttribute="height" multiplier="4:3" id="kxl-Mc-xtO"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <color key="tintColor" systemColor="systemGreenColor"/>
+                                                            <state key="normal">
+                                                                <imageReference key="backgroundImage" image="play.circle.fill" catalog="system" symbolScale="large"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="playStopAudioButtonAction:" destination="rUA-A8-VtF" eventType="touchUpInside" id="bTY-5D-R7u"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlh-5g-BhY" userLabel="Upload Button">
+                                                            <rect key="frame" x="598.66666666666663" y="36.666666666666664" width="65.333333333333371" height="48.999999999999993"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="49" id="Tgy-9g-bUT"/>
+                                                                <constraint firstAttribute="width" secondItem="Jlh-5g-BhY" secondAttribute="height" multiplier="4:3" id="pxT-8a-1AE"/>
+                                                                <constraint firstAttribute="width" constant="49" id="sgJ-vp-4CY"/>
+                                                            </constraints>
+                                                            <state key="normal" image="upload">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="uploadSoundButtonAction:" destination="rUA-A8-VtF" eventType="touchUpInside" id="aKj-Vw-N7s"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-ob-p9c" userLabel="Share Button">
+                                                            <rect key="frame" x="674" y="36.666666666666664" width="49" height="48.999999999999993"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="49" id="MJf-b0-VFv"/>
+                                                                <constraint firstAttribute="height" constant="49" id="UmY-3C-SOI"/>
+                                                                <constraint firstAttribute="width" secondItem="Reo-ob-p9c" secondAttribute="height" multiplier="3:3" id="cVt-hb-JJZ"/>
+                                                            </constraints>
+                                                            <state key="normal" image="share"/>
+                                                            <connections>
+                                                                <action selector="shareButtonAction:" destination="rUA-A8-VtF" eventType="touchUpInside" id="uvt-cR-LI2"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Sqy-t1-BDF" firstAttribute="centerY" secondItem="EsG-gv-3LC" secondAttribute="centerY" id="2MA-Bz-eKb"/>
+                                                    </constraints>
+                                                    <edgeInsets key="layoutMargins" top="8" left="12" bottom="0.0" right="13"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EsG-gv-3LC" firstAttribute="leading" secondItem="wbS-p9-wba" secondAttribute="leading" id="2oh-NU-eVG"/>
+                                                <constraint firstAttribute="trailing" secondItem="EsG-gv-3LC" secondAttribute="trailing" id="6PR-E8-iR1"/>
+                                                <constraint firstAttribute="bottom" secondItem="EsG-gv-3LC" secondAttribute="bottom" id="jSA-nN-kpu"/>
+                                                <constraint firstItem="EsG-gv-3LC" firstAttribute="top" secondItem="wbS-p9-wba" secondAttribute="top" id="o3P-kT-yTC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonPlay" destination="b4d-cD-gve" id="TAs-MV-VWV"/>
+                                            <outlet property="buttonShare" destination="Reo-ob-p9c" id="hKR-f1-HmQ"/>
+                                            <outlet property="buttonUpload" destination="Jlh-5g-BhY" id="woJ-Gk-KQY"/>
+                                            <outlet property="labelSongName" destination="Sqy-t1-BDF" id="K9r-MZ-HHw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0w-Wc-0Oc" userLabel="Indicator View">
+                                <rect key="frame" x="0.0" y="87" width="414" height="774"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="NoO-58-SUr">
+                                        <rect key="frame" x="338" y="155" width="60" height="60"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="B8E-7t-HQ3"/>
+                                            <constraint firstAttribute="width" constant="60" id="RIa-ui-yzA"/>
+                                            <constraint firstAttribute="width" secondItem="NoO-58-SUr" secondAttribute="height" multiplier="1:1" id="kAs-t7-Efs"/>
+                                        </constraints>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="NoO-58-SUr" firstAttribute="centerX" secondItem="Y0w-Wc-0Oc" secondAttribute="centerX" id="1vk-jV-Qlf"/>
+                                    <constraint firstItem="NoO-58-SUr" firstAttribute="centerY" secondItem="Y0w-Wc-0Oc" secondAttribute="centerY" id="Iea-b6-s0B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="B7Q-Ej-Rb3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="61" id="z73-Yl-X1h" customClass="MusicCellTableViewCell" customModule="SweetMagicalMusicBox" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="61"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z73-Yl-X1h" id="1jz-Aj-E70">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Teste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqy-t1-BDF" userLabel="Title Song">
-                                            <rect key="frame" x="20" y="20.333333333333336" width="207" height="20.333333333333336"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" priority="999" constant="700" id="BqG-Ib-RL4"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jlh-5g-BhY" userLabel="Upload Button">
-                                            <rect key="frame" x="304" y="10.666666666666664" width="50" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Tgy-9g-bUT"/>
-                                                <constraint firstAttribute="width" secondItem="Jlh-5g-BhY" secondAttribute="height" multiplier="5:4" id="pxT-8a-1AE"/>
-                                                <constraint firstAttribute="width" constant="50" id="sgJ-vp-4CY"/>
-                                            </constraints>
-                                            <state key="normal" image="upload">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="uploadSongButtonAction:" destination="eIR-O0-E8c" eventType="touchUpInside" id="tLO-YN-JwG"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-ob-p9c" userLabel="Share Button">
-                                            <rect key="frame" x="364" y="11" width="39" height="39"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="39" id="8AJ-rd-jGO"/>
-                                                <constraint firstAttribute="width" secondItem="Reo-ob-p9c" secondAttribute="height" multiplier="1:1" id="Uox-ld-MWJ"/>
-                                                <constraint firstAttribute="width" constant="39" id="bca-Hd-GzA"/>
-                                            </constraints>
-                                            <state key="normal" image="share"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-cD-gve" userLabel="Play Button">
-                                            <rect key="frame" x="245" y="11" width="51" height="39"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="tintColor" systemColor="systemGreenColor"/>
-                                            <state key="normal">
-                                                <imageReference key="backgroundImage" image="play.circle.fill" catalog="system" symbolScale="large"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="playSongButtonAction:" destination="eIR-O0-E8c" eventType="touchUpInside" id="qSM-dX-pOr"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="b4d-cD-gve" firstAttribute="centerY" secondItem="1jz-Aj-E70" secondAttribute="centerY" id="7bP-5F-9z0"/>
-                                        <constraint firstItem="Reo-ob-p9c" firstAttribute="centerY" secondItem="1jz-Aj-E70" secondAttribute="centerY" id="BOp-oE-MhH"/>
-                                        <constraint firstItem="Jlh-5g-BhY" firstAttribute="centerY" secondItem="1jz-Aj-E70" secondAttribute="centerY" id="Ezp-hh-VNn"/>
-                                        <constraint firstItem="Reo-ob-p9c" firstAttribute="leading" secondItem="Jlh-5g-BhY" secondAttribute="trailing" constant="10" id="FlX-4W-4pW"/>
-                                        <constraint firstItem="Sqy-t1-BDF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1jz-Aj-E70" secondAttribute="leadingMargin" id="Hwv-x3-w8l"/>
-                                        <constraint firstItem="Sqy-t1-BDF" firstAttribute="centerY" secondItem="1jz-Aj-E70" secondAttribute="centerY" priority="999" id="K0w-kq-ukI"/>
-                                        <constraint firstItem="Jlh-5g-BhY" firstAttribute="leading" secondItem="b4d-cD-gve" secondAttribute="trailing" constant="8" symbolic="YES" id="XM4-AZ-WbJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="Reo-ob-p9c" secondAttribute="trailing" constant="11" id="c8S-Go-F9P"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="buttonPlay" destination="b4d-cD-gve" id="LXp-wT-NgO"/>
-                                    <outlet property="buttonShare" destination="Reo-ob-p9c" id="9Qz-nk-lMr"/>
-                                    <outlet property="buttonUpload" destination="Jlh-5g-BhY" id="Srj-DH-rjp"/>
-                                    <outlet property="labelSongName" destination="Sqy-t1-BDF" id="0o0-ze-suu"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="eIR-O0-E8c" id="9e2-5K-gpn"/>
-                            <outlet property="delegate" destination="eIR-O0-E8c" id="okn-sW-zNb"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Magical Songs" id="Doh-Uh-srR">
-                        <barButtonItem key="rightBarButtonItem" title="Register" id="vZn-Vd-7mv" userLabel="RegisterLogin Button">
-                            <connections>
-                                <action selector="registerLoginButtonAction:" destination="eIR-O0-E8c" id="9k9-lH-zys"/>
-                            </connections>
+                        <constraints>
+                            <constraint firstItem="JXM-6L-Ylh" firstAttribute="leading" secondItem="B7Q-Ej-Rb3" secondAttribute="leading" id="1gu-Cn-NKI"/>
+                            <constraint firstItem="JXM-6L-Ylh" firstAttribute="trailing" secondItem="B7Q-Ej-Rb3" secondAttribute="trailing" id="4zQ-0F-adz"/>
+                            <constraint firstItem="J3X-j0-e2B" firstAttribute="top" secondItem="B7Q-Ej-Rb3" secondAttribute="top" id="EX9-G1-au9"/>
+                            <constraint firstItem="Y0w-Wc-0Oc" firstAttribute="top" secondItem="B7Q-Ej-Rb3" secondAttribute="top" id="Ion-wY-cbO"/>
+                            <constraint firstItem="Y0w-Wc-0Oc" firstAttribute="leading" secondItem="B7Q-Ej-Rb3" secondAttribute="leading" id="OWk-2i-n8d"/>
+                            <constraint firstItem="JXM-6L-Ylh" firstAttribute="top" secondItem="B7Q-Ej-Rb3" secondAttribute="top" id="Rps-Ww-BP4"/>
+                            <constraint firstItem="J3X-j0-e2B" firstAttribute="bottom" secondItem="B7Q-Ej-Rb3" secondAttribute="bottom" id="VBt-jN-7VR"/>
+                            <constraint firstItem="J3X-j0-e2B" firstAttribute="leading" secondItem="B7Q-Ej-Rb3" secondAttribute="leading" id="dZG-Tt-qAc"/>
+                            <constraint firstItem="J3X-j0-e2B" firstAttribute="trailing" secondItem="B7Q-Ej-Rb3" secondAttribute="trailing" id="ev0-Wu-Khg"/>
+                            <constraint firstItem="Y0w-Wc-0Oc" firstAttribute="bottom" secondItem="B7Q-Ej-Rb3" secondAttribute="bottom" id="hLr-CB-ecf"/>
+                            <constraint firstItem="Y0w-Wc-0Oc" firstAttribute="trailing" secondItem="B7Q-Ej-Rb3" secondAttribute="trailing" id="hUg-xd-Aob"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Magical Songs" id="O1O-Fk-0AY">
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="5rr-CK-T9C">
+                            <color key="tintColor" systemColor="systemRedColor"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="registerLoginButton" destination="vZn-Vd-7mv" id="mat-XB-bqL"/>
-                        <segue destination="IOw-1H-7fs" kind="show" identifier="goToRegister" id="mw3-xv-bHN"/>
+                        <outlet property="activityIndicator" destination="NoO-58-SUr" id="lBr-Hc-72W"/>
+                        <outlet property="indicatorView" destination="Y0w-Wc-0Oc" id="Xsf-3Y-ErC"/>
+                        <outlet property="tableView" destination="J3X-j0-e2B" id="aoF-NJ-QiG"/>
+                        <segue destination="IOw-1H-7fs" kind="show" identifier="goToRegister" id="5f7-QW-5gd"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7v3-Eg-YCP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JtQ-Ta-TiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118.84057971014494" y="75.669642857142847"/>
+            <point key="canvasLocation" x="82.608695652173921" y="75.669642857142847"/>
         </scene>
-        <!--Register-->
+        <!--Register to FreeSounds-->
         <scene sceneID="9Xy-Jq-zej">
             <objects>
                 <viewController id="IOw-1H-7fs" customClass="RegisterController" customModule="SweetMagicalMusicBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ngi-kU-KRM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="KnI-0F-6Oq">
-                                <rect key="frame" x="20" y="375" width="374" height="200"/>
+                                <rect key="frame" x="40" y="96.666666666666686" width="656" height="265"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ClientID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ib0-tv-J0c">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register and request access credentials or Login in FreeSounds to copy the codes below from the website." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW0-Wx-tLx">
+                                        <rect key="frame" x="0.0" y="0.0" width="656" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="gI6-Oa-wPX"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="bVr-bg-VGi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fal-r4-lNT" userLabel="RegisterFreeSoundsButton">
+                                        <rect key="frame" x="0.0" y="49.999999999999986" width="656" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="LFE-iw-ets"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Step 1) Click here to copy ClientID.">
+                                            <color key="titleColor" red="0.6505322456" green="0.1087838486" blue="0.11784917860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerFreeSoundsButtonAction:" destination="IOw-1H-7fs" eventType="touchUpInside" id="VTy-UF-bKj"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ClientID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ib0-tv-J0c">
+                                        <rect key="frame" x="0.0" y="89.999999999999986" width="656" height="45.000000000000014"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="gI6-Oa-wPX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ClientSecret" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9v-uP-Lov">
-                                        <rect key="frame" x="0.0" y="75" width="374" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fxk-TP-06T" userLabel="RegisterFreeSoundsButton">
+                                        <rect key="frame" x="0.0" y="135" width="656" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="4pL-Fs-VKu"/>
+                                            <constraint firstAttribute="height" constant="40" id="3oS-uu-DOW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Step 2) Click here to copy ClientSecret.">
+                                            <color key="titleColor" red="0.6505322456" green="0.1087838486" blue="0.11784917860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerFreeSoundsButtonAction:" destination="IOw-1H-7fs" eventType="touchUpInside" id="pxT-hU-DxN"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ClientSecret" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9v-uP-Lov">
+                                        <rect key="frame" x="0.0" y="175" width="656" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="4pL-Fs-VKu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3i-cZ-mUL">
-                                        <rect key="frame" x="0.0" y="150" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="220" width="656" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.60748493670000003" blue="0.75498139860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="XmG-5y-rZg"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="XmG-5y-rZg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Register">
+                                        <state key="normal" title="Save Codes">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="registerButtonAction:" destination="IOw-1H-7fs" eventType="touchUpInside" id="0OL-AM-Trk"/>
+                                            <action selector="saveCodesButtonAction:" destination="IOw-1H-7fs" eventType="touchUpInside" id="cIm-RY-FdA"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="0Br-ts-WH0"/>
-                                    <constraint firstAttribute="width" constant="374" id="Kw0-rz-v2r"/>
-                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fxk-TP-06T" userLabel="RegisterFreeSoundsButton">
-                                <rect key="frame" x="23.333333333333343" y="326" width="367" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="FIRST click HERE to register for a new API credential and get below from FreeSounds.">
-                                    <color key="titleColor" red="0.6505322456" green="0.1087838486" blue="0.11784917860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="registerFreeSoundsButtonAction:" destination="IOw-1H-7fs" eventType="touchUpInside" id="pxT-hU-DxN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Btt-Kq-TB2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KnI-0F-6Oq" firstAttribute="centerX" secondItem="Btt-Kq-TB2" secondAttribute="centerX" id="89X-v3-o9C"/>
-                            <constraint firstItem="Btt-Kq-TB2" firstAttribute="trailing" secondItem="fxk-TP-06T" secondAttribute="trailing" constant="23.666666666666629" id="BzM-Vs-6bz"/>
+                            <constraint firstAttribute="trailing" secondItem="KnI-0F-6Oq" secondAttribute="trailing" constant="40" id="Hrp-PI-z6L"/>
+                            <constraint firstItem="KnI-0F-6Oq" firstAttribute="leading" secondItem="Btt-Kq-TB2" secondAttribute="leading" constant="40" id="IXr-oF-vuN"/>
                             <constraint firstItem="KnI-0F-6Oq" firstAttribute="centerY" secondItem="Btt-Kq-TB2" secondAttribute="centerY" id="PTC-BI-Aqf"/>
-                            <constraint firstItem="fxk-TP-06T" firstAttribute="leading" secondItem="Btt-Kq-TB2" secondAttribute="leading" constant="23.333333333333371" id="SIo-SM-L75"/>
-                            <constraint firstItem="KnI-0F-6Oq" firstAttribute="top" secondItem="fxk-TP-06T" secondAttribute="bottom" constant="15" id="eeU-Rz-g5x"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="jCK-pf-J7Q"/>
+                    <navigationItem key="navigationItem" title="Register to FreeSounds" id="jCK-pf-J7Q"/>
                     <connections>
                         <outlet property="clientIdTextField" destination="Ib0-tv-J0c" id="FRy-mg-5vx"/>
                         <outlet property="clientSecretTextField" destination="V9v-uP-Lov" id="9Mb-CA-1FS"/>
+                        <outlet property="codesStackView" destination="KnI-0F-6Oq" id="1z7-7v-CbQ"/>
+                        <outlet property="saveCodesButton" destination="r3i-cZ-mUL" id="UTP-Za-jtM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9W-6t-9Vf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918.84057971014499" y="75.669642857142847"/>
+            <point key="canvasLocation" x="817" y="76"/>
         </scene>
     </scenes>
     <resources>
@@ -406,6 +477,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

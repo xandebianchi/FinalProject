@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  SweetMagicalMusicBox
 //
 //  Created by Alexandre Bianchi on 02/03/21.
@@ -11,9 +11,7 @@ import CoreData
 
 class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
     
-    struct Constants {
-        static let RecordingNotSuccessFull = "Recording was not successful"
-    }
+    // MARK: - IBOutlets
     
     @IBOutlet weak var buttonNote1: UIButton!
     @IBOutlet weak var buttonNote2: UIButton!
@@ -27,13 +25,16 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
     @IBOutlet weak var buttonSong: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
     
+    // MARK: - Properties
+
     var audioHandler: AudioHandler!
     var currentSongName: String = ""
     var stopTimer: Timer!
-    var colorArray = [UIColor.red, UIColor.green, UIColor.blue, UIColor.orange, UIColor.systemYellow, UIColor.cyan, UIColor.magenta].shuffled()
-    var notesFileNameArray = ["do-c", "re-d", "mi-e", "fa-f", "sol-g", "la-a", "si-b"].shuffled()
+    var notesColorArrayShuffled = AudioHandler.Constants.notesColorArray.shuffled()
+    var notesFileNameArrayShuffled = AudioHandler.Constants.notesFileNameArray.shuffled()
+    var notesAnimationDurationShuffled = AudioHandler.Constants.notesAnimationDuration.shuffled()
     var dataController: DataController!
-    var fetchResultsController: NSFetchedResultsController<Song>!
+    var fetchedResultsController: NSFetchedResultsController<Song>!
 
     // MARK: - Lifecycle methods
     
@@ -51,84 +52,97 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
 
     // MARK: - Setup methods
     
-    fileprivate func displayNotesAnimated() {
-        UIView.animate(withDuration: 0.9, delay: 0.0, options: [], animations: {
-            self.buttonNote1.tintColor = self.colorArray[0]
-        }, completion: nil)
-        UIView.animate(withDuration: 1.2, delay: 0.0, options: [], animations: {
-            self.buttonNote2.tintColor = self.colorArray[1]
-        }, completion: nil)
-        UIView.animate(withDuration: 1.1, delay: 0.0, options: [], animations: {
-            self.buttonNote3.tintColor = self.colorArray[2]
-        }, completion: nil)
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: [], animations: {
-            self.buttonNote4.tintColor = self.colorArray[3]
-        }, completion: nil)
-        UIView.animate(withDuration: 1.4, delay: 0.0, options: [], animations: {
-            self.buttonNote5.tintColor = self.colorArray[4]
-        }, completion: nil)
-        UIView.animate(withDuration: 1.5, delay: 0.0, options: [], animations: {
-            self.buttonNote6.tintColor = self.colorArray[5]
-        }, completion: nil)
-        UIView.animate(withDuration: 1.3, delay: 0.0, options: [], animations: {
-            self.buttonNote7.tintColor = self.colorArray[6]
-        }, completion: nil)
+    fileprivate func setupFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<Song> = Song.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "songs")
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
     }
     
     func showLastRecordedSong() {
-        if let songs = fetchResultsController.fetchedObjects, songs.count > 0 {
+        if let songs = fetchedResultsController.fetchedObjects, songs.count > 0 {
             currentSongName = songs[0].filename!
             buttonSong.title = currentSongName
             audioHandler.setupAudio(currentSongName) { error in
-                if (error != nil) {
+                if error != nil {
                     currentSongName = ""
                 }
             }
         }
     }
     
-    fileprivate func setupFetchedResultsController() {
-        let fetchRequest: NSFetchRequest<Song> = Song.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "songs")
-        fetchResultsController.delegate = self
-        do {
-            try fetchResultsController.performFetch()
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+    fileprivate func setupRecordPlayButtons() {
+        buttonRecordStopSong.tag = AudioHandler.RecordingState.isNotRecording.rawValue
+        buttonPlayStopSong.tag = AudioHandler.PlayingState.isNotPlaying.rawValue
+        buttonRecordStopSong.image = UIImage(systemName: "mic.fill")
+        buttonRecordStopSong.isEnabled = true
+        buttonPlayStopSong.image = UIImage(systemName: "play.circle.fill")
+        buttonPlayStopSong.isEnabled = !currentSongName.isEmpty
+    }
+    
+    fileprivate func displayNotesAnimated() {
+        // Add an item to the first position since we only can reference buttons dinamically by tag from position 1
+        notesColorArrayShuffled.insert(UIColor.black, at: 0)
+        notesFileNameArrayShuffled.insert("", at: 0)
+        notesAnimationDurationShuffled.insert(0.0, at: 0)
+        for index in 1...7 {
+            let button = view.viewWithTag(index) as! UIButton
+            UIView.animate(withDuration: notesAnimationDurationShuffled[index], delay: 0.0, options: [], animations: {
+                button.tintColor = self.notesColorArrayShuffled[index]
+            }, completion: nil)
         }
     }
     
-    // MARK: - IBActions
+    // MARK: - Audio methods
     
     @IBAction func playNoteButton(_ sender: UIButton) {
-        audioHandler.playAudioAsset(notesFileNameArray[sender.tag])
-    }
-
-    @IBAction func recordStopAudioButton(_ sender: Any) {
-        if buttonRecordStopSong.tag == AudioHandler.RecordingState.mustNotRecord.rawValue {
-            changeRecordStopButtonStatus(showRecordButton: false)
-            getFileName { fileName in
-                self.currentSongName = fileName!
-                self.recordAudio(recordingName: fileName!)
-            }
-        } else {
-            audioHandler.audioRecorder.stop()
-            try? AVAudioSession.sharedInstance().setActive(false)
-//            } catch {
-  //              showAlert(title: "Error", message: error.localizedDescription)
-    //        }
-            changeRecordStopButtonStatus(showRecordButton: true)
-        }
+        audioHandler.playAudioAsset(notesFileNameArrayShuffled[sender.tag])
     }
         
-    @IBAction func playStopAudioButton(_ sender: Any) {
-        if buttonPlayStopSong.tag == AudioHandler.PlayingState.mustNotPlay.rawValue {
+    @IBAction func recordStopAudioButton(_ sender: Any) {
+        if self.buttonRecordStopSong.tag == AudioHandler.RecordingState.isNotRecording.rawValue {
+            let userDefaults = UserDefaults.standard
+            if userDefaults.bool(forKey: "firstTimeSettingMicrophonePermission") == false {
+                self.recordAfterMicrophonePermissionVerified()
+            } else {
+                AudioHandler.hasMicrophonePermission { alert in
+                    if let alert = alert {
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
+                        self.recordAfterMicrophonePermissionVerified()
+                    }
+                }
+            }
+        } else {
+            self.audioHandler.audioRecorder.stop()
+            try? AVAudioSession.sharedInstance().setActive(false)
+            self.changeRecordStopButtonStatus(showRecordButton: true)
+        }
+    }
+    
+    fileprivate func recordAfterMicrophonePermissionVerified() {
+        self.getFileName { fileName in
+            if let fileName = fileName {
+                UserDefaults.standard.set(true, forKey: "firstTimeSettingMicrophonePermission")
+                self.changeRecordStopButtonStatus(showRecordButton: false)
+                self.currentSongName = fileName
+                self.recordAudio(recordingName: fileName)
+            }
+        }
+    }
+            
+    @IBAction func playStopAudioButtonAction(_ sender: Any) {
+        if buttonPlayStopSong.tag == AudioHandler.PlayingState.isNotPlaying.rawValue {
             self.changePlayStopButtonStatus(showPlayButton: false)
-            audioHandler.playSound { delayInSeconds, error in
+            audioHandler.playSong { delayInSeconds, error in
                 if error != nil {
-                    self.showAlert(title: "Alerts.AudioFileError", message: String(describing: error))
+                    self.showAlert(title: AudioHandler.Constants.ErrorPlaySong, message: String(describing: error))
                     self.changePlayStopButtonStatus(showPlayButton: true)
                 } else {
                     self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(self.stopAudio), userInfo: nil, repeats: false)
@@ -137,7 +151,6 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
             }
         } else {
             stopAudio()
-            changePlayStopButtonStatus(showPlayButton: true)
         }
     }
     
@@ -158,15 +171,15 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
         }
     }
     
-    // MARK: Change button and label status
+    // MARK: - Change button and label status
     
     func changeRecordStopButtonStatus(showRecordButton: Bool) {
         if showRecordButton {
-            buttonRecordStopSong.tag = AudioHandler.RecordingState.mustNotRecord.rawValue
+            buttonRecordStopSong.tag = AudioHandler.RecordingState.isNotRecording.rawValue
             buttonRecordStopSong.image = UIImage(systemName: "mic.fill")
             buttonPlayStopSong.isEnabled = !currentSongName.isEmpty
         } else {
-            buttonRecordStopSong.tag = AudioHandler.RecordingState.mustRecord.rawValue
+            buttonRecordStopSong.tag = AudioHandler.RecordingState.isRecording.rawValue
             buttonRecordStopSong.image = UIImage(systemName: "stop.circle.fill")
             buttonPlayStopSong.isEnabled = false
         }
@@ -175,18 +188,18 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
     
     func changePlayStopButtonStatus(showPlayButton: Bool) {
         if showPlayButton {
-            buttonPlayStopSong.tag = AudioHandler.PlayingState.mustNotPlay.rawValue
+            buttonPlayStopSong.tag = AudioHandler.PlayingState.isNotPlaying.rawValue
             buttonPlayStopSong.image = UIImage(systemName: "play.circle.fill")
             buttonRecordStopSong.isEnabled = true
         } else {
-            buttonPlayStopSong.tag = AudioHandler.PlayingState.mustPlay.rawValue
+            buttonPlayStopSong.tag = AudioHandler.PlayingState.isPlaying.rawValue
             buttonPlayStopSong.image = UIImage(systemName: "stop.circle.fill")
             buttonRecordStopSong.isEnabled = false
         }
         buttonPlayStopSong.isEnabled = true
     }
-    
-    // MARK: Audio delegate
+        
+    // MARK: - Audio delegate
     
     func recordAudio(recordingName: String) {
         let audioSession = AVAudioSession.sharedInstance()
@@ -195,9 +208,9 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
             try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
             try audioSession.setActive(true)
         } catch {
-            print("Couldn't override output audio port")
+            showAlert(title: AudioHandler.Constants.UseSpeaker, message: AudioHandler.Constants.ReminderUseSpeaker)
         }
-        try! audioHandler.audioRecorder = AVAudioRecorder(url: audioHandler.getFilePath(recordingName: recordingName), settings: [:])
+        try! audioHandler.audioRecorder = AVAudioRecorder(url: AudioHandler.getFilePath(recordingName: recordingName), settings: [:])
         audioHandler.audioRecorder.delegate = self
         audioHandler.audioRecorder.isMeteringEnabled = true
         audioHandler.audioRecorder.prepareToRecord()
@@ -205,55 +218,82 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
+        if flag { // Record with successfull
             saveCurrentSong()
             buttonSong.title = currentSongName
             audioHandler.setupAudio(currentSongName) { error in
                 if error != nil {
-                    self.showAlert(title: "Alerts.AudioFileError", message: String(describing: error))
+                    self.showAlert(title: AudioHandler.Constants.ErrorRecordSong, message: String(describing: error))
                 }
             }
             changePlayStopButtonStatus(showPlayButton: true)
-            //performSegue(withIdentifier: Constants.StopRecordingSegueId, sender: audioRecorder.url)
         } else {
-            showAlert(title: AudioHandler.Alerts.AudioFileError, message: String(describing: Constants.RecordingNotSuccessFull))
-            //print(Constants.RecordingNotSuccessFull)
+            showAlert(title: AudioHandler.Constants.RecordingError, message: String(describing: AudioHandler.Constants.RecordingNotSuccessFull))
         }
     }
     
-    // MARK: Get file name and path methods
+    // MARK: - Get file name and path methods with conditionals and recursively calling
     
-    // IT IS FAILING TO GET THE NAME when EMPTY
     func getFileName(completion: @escaping(String?) -> Void) {
-        let alert = UIAlertController(title: "Name of file", message: "What is the name of the song?", preferredStyle: .alert)
+        let alert = UIAlertController(title: AudioHandler.Constants.SongName, message: AudioHandler.Constants.SongNameQuestion, preferredStyle: .alert)
         alert.addTextField { textField in
             textField.delegate = self
             textField.text = ""
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let savedSongs = self.fetchResultsController.fetchedObjects! as [Song]
-            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
-            var finished = false
-            repeat {
-                if textField.text!.isEmpty {
-                    self.showAlert(title: "Empty name", message: "Choose a name")
-                } else if savedSongs.filter({$0.filename == textField.text}).count > 0 {
-                    self.showAlert(title: "This song already exists", message: "Choose another name")
-                } else {
-                    finished = true
-                    completion(textField.text!)
+            let textField = alert!.textFields![0]
+            textField.delegate = self
+            let fileName = textField.text!
+            if fileName.isEmpty {
+                let alert = UIAlertController(title: AudioHandler.Constants.SongNameEmpty, message: AudioHandler.Constants.SongNameMustNotBeEmpty, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                    UIAlertAction in
+                    self.getFileName { fileNameRecursive in
+                        completion(fileNameRecursive)
+                    }
                 }
-            } while !finished
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
+                    UIAlertAction in
+                    completion(nil)
+                }
+                alert.addAction(okAction)
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let savedSongs = self.fetchedResultsController.fetchedObjects! as [Song]
+                if savedSongs.filter({$0.filename == fileName}).count > 0 {
+                    let alert = UIAlertController(title: AudioHandler.Constants.SongNameExists, message: AudioHandler.Constants.ChooseAnotherName, preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                        UIAlertAction in
+                        self.getFileName { fileNameRecursive in
+                            completion(fileNameRecursive)
+                        }
+                    }
+                    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
+                        UIAlertAction in
+                        completion(nil)
+                    }
+                    alert.addAction(okAction)
+                    alert.addAction(cancelAction)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    completion(fileName)
+                }
+            }
         }))
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
+        alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Text field delegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let isBackSpace = strcmp(string.cString(using: String.Encoding.utf8)!, "\\b") == -92
         return string.isAlphanumeric || isBackSpace
     }
     
-    // MARK: Core Data
+    // MARK: - Core Data
     
     fileprivate func saveCurrentSong() {
         let savedSong = Song(context: dataController.viewContext)
@@ -261,29 +301,30 @@ class MainViewController: UIViewController, AVAudioRecorderDelegate, NSFetchedRe
         do {
             try dataController.viewContext.save()
         } catch {
-            showAlert(title: "Error", message: error.localizedDescription)
+            showAlert(title: AudioHandler.Constants.Error, message: error.localizedDescription)
         }
-        try? fetchResultsController.performFetch()
+        try? fetchedResultsController.performFetch()
     }
     
-    @IBAction func goToMagicalSoundsButtonAction(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToMagicalSongs", sender: nil)
+    // MARK: - Go to Magical Songs
+    
+    @IBAction func goToMagicalSongsButtonAction(_ sender: Any) {
+        if buttonRecordStopSong.tag == AudioHandler.RecordingState.isRecording.rawValue {
+            showAlert(title: AudioHandler.Constants.SongUnderRecording, message: AudioHandler.Constants.StopTheSongRecording)
+        } else {
+            if buttonPlayStopSong.tag == AudioHandler.PlayingState.isPlaying.rawValue {
+                stopAudio()
+            }
+            self.performSegue(withIdentifier: "goToMagicalSongs", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToMagicalSongs" {
             let magicalSoungsViewController = segue.destination as! MagicalSongsViewController
             magicalSoungsViewController.dataController = dataController
+            magicalSoungsViewController.isComingFromRegisterController = false
         }
-    }
-    
-    func setupRecordPlayButtons() {
-        buttonRecordStopSong.tag = AudioHandler.RecordingState.mustNotRecord.rawValue
-        buttonPlayStopSong.tag = AudioHandler.PlayingState.mustNotPlay.rawValue
-        buttonRecordStopSong.image = UIImage(systemName: "mic.fill")
-        buttonRecordStopSong.isEnabled = true
-        buttonPlayStopSong.image = UIImage(systemName: "play.circle.fill")
-        buttonPlayStopSong.isEnabled = !currentSongName.isEmpty
     }
     
 }

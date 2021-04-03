@@ -12,11 +12,14 @@
 		AA00C77E26050F4A006CE11A /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00C77D26050F4A006CE11A /* CustomErrors.swift */; };
 		AA00C78126053D1C006CE11A /* AudioHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00C78026053D1C006CE11A /* AudioHandler.swift */; };
 		AA00C78526057A7A006CE11A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AA00C78426057A7A006CE11A /* Alamofire */; };
-		AA00C78A260687F3006CE11A /* CurlDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AA00C789260687F3006CE11A /* CurlDSL */; };
 		AA00C7932607C087006CE11A /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00C7922607C087006CE11A /* RegisterController.swift */; };
 		AA152AC925FD3EB80074B36C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA152AC825FD3EB80074B36C /* Extensions.swift */; };
+		AA6E0DA82618B3EB00754ED1 /* MusicCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6E0DA72618B3EB00754ED1 /* MusicCellTableViewCell.swift */; };
 		AAAF6BD125F6ED2C0067C261 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAF6BD025F6ED2C0067C261 /* DataController.swift */; };
-		AAD60EAD25F98C9C00EEE788 /* Songs+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD60EAC25F98C9C00EEE788 /* Songs+Extensions.swift */; };
+		AAB816DA260AB95300E0F947 /* UploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB816D9260AB95300E0F947 /* UploadResponse.swift */; };
+		AAD60EAD25F98C9C00EEE788 /* Song+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD60EAC25F98C9C00EEE788 /* Song+Extensions.swift */; };
+		AAD8ECE5260F9AC800D79302 /* PendingUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8ECE4260F9AC800D79302 /* PendingUploadResponse.swift */; };
+		AAD8ECE8260FB21C00D79302 /* SoundInstanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD8ECE7260FB21C00D79302 /* SoundInstanceResponse.swift */; };
 		AADB3D3325EF081A00BDAAA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADB3D3225EF081A00BDAAA1 /* AppDelegate.swift */; };
 		AADB3D3525EF081A00BDAAA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADB3D3425EF081A00BDAAA1 /* SceneDelegate.swift */; };
 		AADB3D3725EF081A00BDAAA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADB3D3625EF081A00BDAAA1 /* MainViewController.swift */; };
@@ -35,8 +38,12 @@
 		AA00C78026053D1C006CE11A /* AudioHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHandler.swift; sourceTree = "<group>"; };
 		AA00C7922607C087006CE11A /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		AA152AC825FD3EB80074B36C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AA6E0DA72618B3EB00754ED1 /* MusicCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellTableViewCell.swift; sourceTree = "<group>"; };
 		AAAF6BD025F6ED2C0067C261 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		AAD60EAC25F98C9C00EEE788 /* Songs+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Songs+Extensions.swift"; sourceTree = "<group>"; };
+		AAB816D9260AB95300E0F947 /* UploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadResponse.swift; sourceTree = "<group>"; };
+		AAD60EAC25F98C9C00EEE788 /* Song+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+Extensions.swift"; sourceTree = "<group>"; };
+		AAD8ECE4260F9AC800D79302 /* PendingUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingUploadResponse.swift; sourceTree = "<group>"; };
+		AAD8ECE7260FB21C00D79302 /* SoundInstanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundInstanceResponse.swift; sourceTree = "<group>"; };
 		AADB3D2F25EF081A00BDAAA1 /* SweetMagicalMusicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetMagicalMusicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADB3D3225EF081A00BDAAA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADB3D3425EF081A00BDAAA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA00C78A260687F3006CE11A /* CurlDSL in Frameworks */,
 				AA00C78526057A7A006CE11A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +80,7 @@
 		AAD60EAB25F98C7900EEE788 /* Managed Object Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AAD60EAC25F98C9C00EEE788 /* Songs+Extensions.swift */,
+				AAD60EAC25F98C9C00EEE788 /* Song+Extensions.swift */,
 			);
 			path = "Managed Object Extensions";
 			sourceTree = "<group>";
@@ -116,7 +122,6 @@
 				AAD60EAB25F98C7900EEE788 /* Managed Object Extensions */,
 				AADB3D5225EF08F300BDAAA1 /* Core Data */,
 				AADB3D4F25EF08CC00BDAAA1 /* Client */,
-				AADB3D5125EF08EA00BDAAA1 /* Request */,
 				AADB3D5025EF08D400BDAAA1 /* Response */,
 				AA00C77C26050F25006CE11A /* Custom Errors */,
 			);
@@ -126,6 +131,7 @@
 		AADB3D4B25EF084200BDAAA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AA6E0DA72618B3EB00754ED1 /* MusicCellTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,16 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				AA00C7742604E5D1006CE11A /* AuthorizeResponse.swift */,
+				AAB816D9260AB95300E0F947 /* UploadResponse.swift */,
+				AAD8ECE7260FB21C00D79302 /* SoundInstanceResponse.swift */,
+				AAD8ECE4260F9AC800D79302 /* PendingUploadResponse.swift */,
 				AA00C77926050E57006CE11A /* ErrorResponse.swift */,
 			);
 			path = Response;
-			sourceTree = "<group>";
-		};
-		AADB3D5125EF08EA00BDAAA1 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		AADB3D5225EF08F300BDAAA1 /* Core Data */ = {
@@ -210,7 +212,6 @@
 			name = SweetMagicalMusicBox;
 			packageProductDependencies = (
 				AA00C78426057A7A006CE11A /* Alamofire */,
-				AA00C789260687F3006CE11A /* CurlDSL */,
 			);
 			productName = SweetMagicalMusicBox;
 			productReference = AADB3D2F25EF081A00BDAAA1 /* SweetMagicalMusicBox.app */;
@@ -241,7 +242,6 @@
 			mainGroup = AADB3D2625EF081A00BDAAA1;
 			packageReferences = (
 				AA00C78326057A7A006CE11A /* XCRemoteSwiftPackageReference "Alamofire" */,
-				AA00C788260687F3006CE11A /* XCRemoteSwiftPackageReference "CurlDSL" */,
 			);
 			productRefGroup = AADB3D3025EF081A00BDAAA1 /* Products */;
 			projectDirPath = "";
@@ -272,7 +272,7 @@
 			files = (
 				AADB3D3725EF081A00BDAAA1 /* MainViewController.swift in Sources */,
 				AA00C77E26050F4A006CE11A /* CustomErrors.swift in Sources */,
-				AAD60EAD25F98C9C00EEE788 /* Songs+Extensions.swift in Sources */,
+				AAD60EAD25F98C9C00EEE788 /* Song+Extensions.swift in Sources */,
 				AAAF6BD125F6ED2C0067C261 /* DataController.swift in Sources */,
 				AA00C7752604E5D1006CE11A /* AuthorizeResponse.swift in Sources */,
 				AADB3D3325EF081A00BDAAA1 /* AppDelegate.swift in Sources */,
@@ -280,10 +280,14 @@
 				AADB3D3525EF081A00BDAAA1 /* SceneDelegate.swift in Sources */,
 				AADB3D3D25EF081A00BDAAA1 /* SweetMagicalMusicBox.xcdatamodeld in Sources */,
 				AAFAD3BF25FE87240023AA78 /* NetworkClient.swift in Sources */,
+				AAB816DA260AB95300E0F947 /* UploadResponse.swift in Sources */,
+				AA6E0DA82618B3EB00754ED1 /* MusicCellTableViewCell.swift in Sources */,
 				AA00C7932607C087006CE11A /* RegisterController.swift in Sources */,
 				AA00C78126053D1C006CE11A /* AudioHandler.swift in Sources */,
+				AAD8ECE8260FB21C00D79302 /* SoundInstanceResponse.swift in Sources */,
 				AAFAD3C425FE8E1F0023AA78 /* MagicalSongsViewController.swift in Sources */,
 				AA00C77A26050E57006CE11A /* ErrorResponse.swift in Sources */,
+				AAD8ECE5260F9AC800D79302 /* PendingUploadResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 58UTHQK46A;
 				INFOPLIST_FILE = SweetMagicalMusicBox/Info.plist;
@@ -440,6 +445,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bianchiapps.SweetMagicalMusicBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 58UTHQK46A;
 				INFOPLIST_FILE = SweetMagicalMusicBox/Info.plist;
@@ -460,6 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bianchiapps.SweetMagicalMusicBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -497,14 +505,6 @@
 				minimumVersion = 5.4.1;
 			};
 		};
-		AA00C788260687F3006CE11A /* XCRemoteSwiftPackageReference "CurlDSL" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zonble/CurlDSL";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.5;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -512,11 +512,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA00C78326057A7A006CE11A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		AA00C789260687F3006CE11A /* CurlDSL */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA00C788260687F3006CE11A /* XCRemoteSwiftPackageReference "CurlDSL" */;
-			productName = CurlDSL;
 		};
 /* End XCSwiftPackageProductDependency section */
 

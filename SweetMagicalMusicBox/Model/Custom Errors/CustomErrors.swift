@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - AppError
+
 struct AppError: Error {
     let message: String
 
